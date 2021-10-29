@@ -1,6 +1,6 @@
 # Robot Diagram
 
-Diagram of robot hardware and connection to reference when programming
+Diagram of robot hardware and connections to reference when programming
 
 ## Ports
 
