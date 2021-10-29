@@ -11,6 +11,19 @@ public class DriveTrain {
     private DcMotor backRight; //Port
 
 
+    public void rotateRight(double power) {
+        frontRight.setPower(-power);
+        backRight.setPower(-power);
+        frontLeft.setPower(power);
+        backLeft.setPower(power);
+    }
+    public void strafeLeft(double power) {
+        frontRight.setPower(power);
+        backRight.setPower(-power);
+        frontLeft.setPower(-power);
+        backLeft.setPower(power);
+    }
+
     public void init(HardwareMap hardwareMap) {
 
 
