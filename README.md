@@ -25,3 +25,7 @@ Please make sure to read the [Contributing Guide](CONTRIBUTING.md) before making
 
 ### Contributors
 - Devin Hall - [_@Devin34_](https://github.com/Devin34)
+- Aidan Black - [_@blackaw1234_](https://github.com/blackaw1234)
+- Ari Delamata - [_@Nitr0gue_](https://github.com/Nitr0gue)
+
+- Tyler Wisniewski - [_@Tyler-Wisniewski_](https://github.com/Tyler-Wisniewski)
