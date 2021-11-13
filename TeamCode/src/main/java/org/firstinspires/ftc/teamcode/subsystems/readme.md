@@ -61,7 +61,7 @@ Right Joystick-X: Steer
 Button A: Rotates Intake  
 Button X: Reverse Intake  
 Button Y: 
-Button B: Carousel   
+Button B: Carousel     
 Button Guide: Swap Alliance Color
 Right Trigger: 
 
