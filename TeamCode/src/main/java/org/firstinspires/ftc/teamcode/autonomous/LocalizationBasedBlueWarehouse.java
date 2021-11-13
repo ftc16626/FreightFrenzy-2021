@@ -5,17 +5,15 @@ import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
-import org.firstinspires.ftc.teamcode.subsystems.Carousel;
 
-public class LocalizationBasedRedWarehouse extends LinearOpMode {
-
+public class LocalizationBasedBlueWarehouse extends LinearOpMode {
     SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
     @Override
     public void runOpMode() {
 
-        Trajectory traj1 = drive.trajectoryBuilder(new Pose2d(0.0, -63.0, 0.0))
-                .strafeLeft(21.0)
+        Trajectory traj1 = drive.trajectoryBuilder(new Pose2d(0.0, 63.0, 0.0))
+                .strafeRight(21.0)
                 .build();
 
         Trajectory traj2 = drive.trajectoryBuilder(traj1.end())
@@ -24,7 +22,7 @@ public class LocalizationBasedRedWarehouse extends LinearOpMode {
 
         waitForStart();
 
-        if(isStopRequested()) return;
+        if (isStopRequested()) return;
 
         drive.followTrajectory(traj1);
         drive.followTrajectory(traj2);
