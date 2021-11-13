@@ -46,13 +46,14 @@ Button A:
 Button X:  
 Button Y:  
 Button B:  
-Button Guide: Swap Alliance Color
+Button Guide: Swap Alliance Color  
 Right Trigger: Slow Mode  
 
 ### Joysticks
-Left Joystick-X: Strafe
-Right Joystick-X: Steer  
+Left Joystick-X: Strafe  
 Left Joystick-Y: Throttle
+
+Right Joystick-X: Steer  
 
 
 ## Gamepad 2
@@ -66,9 +67,9 @@ Right Trigger:
 
 ### Joysticks
 Left Joystick-X:   
-Right Joystick-X:  
 Left Joystick-Y: 
 
+Right Joystick-X: 
 
 
 
