@@ -17,7 +17,7 @@ public class Intake {
     }
 
     //[button1]: forwards (intake) [button2]: backwards (outtake)
-    public void rotate(boolean button1, boolean button2, double power) {
+    public void rotateIntake(boolean button1, boolean button2, double power) {
         if (button1) {
             intakeMotor.setPower(power);
         }
@@ -27,5 +27,9 @@ public class Intake {
             else {
             intakeMotor.setPower(0);
         }
+    }
+
+    public DcMotor getIntakeMotor() {
+        return intakeMotor;
     }
 }
