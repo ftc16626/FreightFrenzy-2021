@@ -65,8 +65,8 @@ Button Guide: Swap Alliance Color
 Right Trigger: 
 
 ### Joysticks
-Left Joystick-X: 
-Right Joystick-X:   
+Left Joystick-X:   
+Right Joystick-X:  
 Left Joystick-Y: 
 
 
