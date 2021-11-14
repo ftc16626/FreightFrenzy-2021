@@ -101,7 +101,7 @@ public class Teleop extends LinearOpMode {
     private void gamePadTwoControls() {
         intake.rotateIntake(gamepad2.a, gamepad1.x, intakePower);
         carousel.rotate(gamepad2.b, carouselPower);
-        lift.elevate(.5);
+        lift.elevate(.5, -gamepad2.left_stick_y);
 
     }
 

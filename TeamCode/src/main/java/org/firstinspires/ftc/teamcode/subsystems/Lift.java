@@ -33,7 +33,7 @@ public class Lift {
 
     }
 
-    public void elevate(double power) {
+    public void elevate(double power, double joyStickControl) {
 
         switch (stage) {
 
@@ -44,7 +44,7 @@ public class Lift {
 
             case STAGEZERO:
                 liftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-                liftMotor.setPower(power);
+                liftMotor.setPower(joyStickControl);
                 break;
 
             case STAGEONE:
