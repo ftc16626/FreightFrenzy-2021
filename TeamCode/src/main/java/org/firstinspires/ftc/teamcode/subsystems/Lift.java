@@ -17,6 +17,7 @@ public class Lift {
     private final int stageOne = 0;
     private final int stageTwo = 0;
     private final int stageThree = 0;
+    private final int startPosition = 0;
 
     public enum Stage {
         DEFAULT, STAGEZERO, STAGEONE, STAGETWO, STAGETHREE
@@ -38,8 +39,9 @@ public class Lift {
         switch (stage) {
 
             case DEFAULT:
-                liftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-                liftMotor.setPower(0);
+                liftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                liftMotor.setTargetPosition(startPosition);
+                liftMotor.setPower(power);
                 break;
 
             case STAGEZERO:
