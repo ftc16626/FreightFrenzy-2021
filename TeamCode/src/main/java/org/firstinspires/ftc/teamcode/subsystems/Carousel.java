@@ -5,7 +5,6 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Carousel {
 
-
     private DcMotor carouselMotor; //Port
 
     public void init(HardwareMap hardwareMap) {
@@ -23,7 +22,6 @@ public class Carousel {
             carouselMotor.setPower(0);
         }
     }
-
 
     public DcMotor getCarouselMotor() {
         return carouselMotor;
