@@ -19,9 +19,11 @@ public class Teleop extends LinearOpMode {
     Carousel carousel = new Carousel();
     Lift lift = new Lift();
 
+
     private boolean changed = false;
     private boolean changed2 = false;
     private double power = .5;
+
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -42,9 +44,9 @@ public class Teleop extends LinearOpMode {
         //Code to run after START is pressed
         while (!isStopRequested()) {
 
+
             swapTeleopGpadOne();
             swapTeleopGpadTwo();
-
 
 
             //Gamepad 1 Controls
@@ -54,8 +56,10 @@ public class Teleop extends LinearOpMode {
             telemetry.update();
 
             //Gamepad 2 Controls
+
             intake.rotateIntake(gamepad2.a, gamepad1.x, 1);
             carousel.rotate(gamepad2.b, power);
+
 
 
 
