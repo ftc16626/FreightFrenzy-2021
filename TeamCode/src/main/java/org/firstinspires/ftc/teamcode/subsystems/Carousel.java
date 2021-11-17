@@ -10,7 +10,7 @@ public class Carousel {
 
     public void init(HardwareMap hardwareMap) {
 
-        carouselMotor = hardwareMap.get(DcMotor.class, "intakeMotor");
+        carouselMotor = hardwareMap.get(DcMotor.class, "carouselMotor");
 
         carouselMotor.setPower(0);
     }
@@ -18,11 +18,14 @@ public class Carousel {
     //[button]: rotate counterclockwise
     public void rotate(boolean button, double power) {
         if (button) {
-            carouselMotor.setPower(.5);
+            carouselMotor.setPower(-.5);
         } else {
             carouselMotor.setPower(0);
         }
     }
 
 
+    public DcMotor getCarouselMotor() {
+        return carouselMotor;
+    }
 }
