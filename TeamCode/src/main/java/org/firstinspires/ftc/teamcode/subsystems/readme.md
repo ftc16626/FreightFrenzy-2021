@@ -62,12 +62,20 @@ Button A: Rotates Intake
 Button X: Reverse Intake  
 Button Y:   
 Button B: Carousel     
-Button Guide: Swap Alliance Color
-Right Trigger: 
+
+Dpad Down: Manual control  
+Dpad Left: Stage One  
+Dpad Up: Stage Two  
+Dpad Right: Stage Three  
+
+Button Guide: Swap Alliance Color  
+Right Trigger:   
+Left Trigger:  
+Right Bumper: Toggle lift tilt forward and back  
 
 ### Joysticks
 Left Joystick-X:   
-Left Joystick-Y: 
+Left Joystick-Y: Manual lift control  
 
 Right Joystick-X: 
 
