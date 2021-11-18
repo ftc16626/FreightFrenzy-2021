@@ -87,6 +87,7 @@ public class Teleop extends LinearOpMode {
 
             //Telemetry
             telemetry.addData("heading", drive.getExternalHeading());
+            telemetry.addData("Lift Position", lift.getLiftMotor().getCurrentPosition());
             telemetry.update();
         }
     }
