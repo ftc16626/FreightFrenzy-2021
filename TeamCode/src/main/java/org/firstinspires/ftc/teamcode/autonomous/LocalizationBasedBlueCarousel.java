@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
-public class LocalizationBased extends LinearOpMode {
+public class LocalizationBasedBlueCarousel extends LinearOpMode {
 
 
     @Override
