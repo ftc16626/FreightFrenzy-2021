@@ -10,8 +10,14 @@ import org.firstinspires.ftc.teamcode.subsystems.DriveTrain;
 public class OGTimeBased extends OpMode {
 
     private final ElapsedTime runtime = new ElapsedTime();
-    DriveTrain driveTrain = new DriveTrain();
     private double start = 0;
+
+    DriveTrain driveTrain = new DriveTrain();
+
+
+
+
+
 
     public double duration(double duration) {
         start += duration;
@@ -28,24 +34,55 @@ public class OGTimeBased extends OpMode {
         runtime.reset();
 
 
-        if (runtime.seconds() > 0 && runtime.seconds() < 1) {
-            driveTrain.strafeLeft(.8);
-        }
-        if (runtime.seconds() > 2 && runtime.seconds() < 5) {
-            driveTrain.driveAll(.8);
-        }
-        driveTrain.driveAll(0);
+
+
+
+
 
 
     }
 
     @Override
     public void loop() {
+        if (runtime.seconds() > start && runtime.seconds() < duration(.5)) {
+            driveTrain.driveAll(.3);
+        }
+
+        else if (runtime.seconds() > start && runtime.seconds() < duration(.5)) {
+            driveTrain.driveAll(0);
+        }
+
+        if (runtime.seconds() > start && runtime.seconds() < duration(.5)) {
+            driveTrain.strafeLeft(.3);
+        }
+
+        else if (runtime.seconds() > start && runtime.seconds() < duration(.5)) {
+            driveTrain.strafeLeft(0);
+        }
+
+        if (runtime.seconds() > start && runtime.seconds() < duration(.5)) {
+            driveTrain.rotateRight(.3);
+        }
+
+        else if (runtime.seconds() > start && runtime.seconds() < duration(.5)) {
+            driveTrain.rotateRight(0);
+        }
+
+        if (runtime.seconds() > start && runtime.seconds() < duration(.5)) {
+            driveTrain.driveAll(.3);
+        }
+
+        else if (runtime.seconds() > start && runtime.seconds() < duration(.5)) {
+            driveTrain.rotateRight(0);
+        }
+
+
+
+
+
+
 
 
     }
 
-
 }
-
-
