@@ -24,7 +24,7 @@ public class Intake {
         if (button2) {
             intakeMotor.setPower(-power);
         }
-            else {
+        else {
             intakeMotor.setPower(0);
         }
     }
