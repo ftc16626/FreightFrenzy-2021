@@ -23,6 +23,10 @@ public class Lift {
         DEFAULT, STAGEZERO, STAGEONE, STAGETWO, STAGETHREE
     }
 
+    public DcMotor getLiftMotor() {
+        return liftMotor;
+    }
+
     public void init(HardwareMap hardwareMap) {
 
 

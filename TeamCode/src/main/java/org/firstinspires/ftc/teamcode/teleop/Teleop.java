@@ -43,6 +43,7 @@ public class Teleop extends LinearOpMode {
     //Misc
     private final double slowPercentage = .3; //How much the wheels should be slowed by when the driver holds the right trigger
 
+
     @Override
     public void runOpMode() throws InterruptedException {
 
@@ -75,27 +76,40 @@ public class Teleop extends LinearOpMode {
 
         while (!isStopRequested()) {
 
+
             //Gamepad 1 Controls
             gamePadOneControls();
 
             //Gamepad 2 Controls
             gamePadTwoControls();
+          
+            swapTeleopGpadOne();
+            swapTeleopGpadTwo();
 
             //Any button input that needs to be checked (toggle buttons)
             getButtons();
+          
+
+            //Gamepad 1 Controls
+            driveTrain.setDrivePower(gamepad1.right_trigger, .3, -gamepad1.left_stick_y, gamepad1.left_stick_x * 1.5, gamepad1.right_stick_x);
 
 
             //Telemetry
             telemetry.addData("heading", drive.getExternalHeading());
+            telemetry.addData("Lift Position", lift.getLiftMotor().getCurrentPosition());
             telemetry.update();
         }
     }
+
 
     //--------------------------- METHODS  ---------------------------\\
 
     private void gamePadOneControls() {
         driveTrain.setDrivePower(gamepad1.right_trigger, slowPercentage, -gamepad1.left_stick_y, gamepad1.left_stick_x * 1.5, gamepad1.right_stick_x);
 
+            //Gamepad 2 Controls
+            intake.rotateIntake(gamepad2.a, gamepad1.x, 1);
+            carousel.rotate(gamepad2.b, power);
     }
 
     private void gamePadTwoControls() {
@@ -113,6 +127,9 @@ public class Teleop extends LinearOpMode {
         lift.toggleStage(gamepad2.dpad_left, dPadLeftChanged,STAGEONE);
         lift.toggleStage(gamepad2.dpad_up, dPadUpChanged,STAGETWO);
         lift.toggleStage(gamepad2.dpad_right, dPadRightChanged,STAGETHREE);
+        }
+    }
+
 
         lift.toggleTilt(gamepad2.right_bumper, rightBumperChanged, lift.getTiltServoOne().getPosition(), targetTiltPosition);
     }
