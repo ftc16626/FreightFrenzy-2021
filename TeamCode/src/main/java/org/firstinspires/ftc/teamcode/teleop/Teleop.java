@@ -82,9 +82,6 @@ public class Teleop extends LinearOpMode {
 
             //Gamepad 2 Controls
             gamePadTwoControls();
-          
-            swapTeleopGpadOne();
-            swapTeleopGpadTwo();
 
             //Any button input that needs to be checked (toggle buttons)
             getButtons();
@@ -109,7 +106,7 @@ public class Teleop extends LinearOpMode {
 
             //Gamepad 2 Controls
             intake.rotateIntake(gamepad2.a, gamepad1.x, 1);
-            carousel.rotate(gamepad2.b, power);
+            carousel.rotate(gamepad2.b, carouselPower);
     }
 
     private void gamePadTwoControls() {
@@ -127,10 +124,6 @@ public class Teleop extends LinearOpMode {
         lift.toggleStage(gamepad2.dpad_left, dPadLeftChanged,STAGEONE);
         lift.toggleStage(gamepad2.dpad_up, dPadUpChanged,STAGETWO);
         lift.toggleStage(gamepad2.dpad_right, dPadRightChanged,STAGETHREE);
-        }
-    }
-
-
         lift.toggleTilt(gamepad2.right_bumper, rightBumperChanged, lift.getTiltServoOne().getPosition(), targetTiltPosition);
     }
 
