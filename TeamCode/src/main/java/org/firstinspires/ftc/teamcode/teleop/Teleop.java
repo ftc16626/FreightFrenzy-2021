@@ -104,13 +104,10 @@ public class Teleop extends LinearOpMode {
     private void gamePadOneControls() {
         driveTrain.setDrivePower(gamepad1.right_trigger, slowPercentage, -gamepad1.left_stick_y, gamepad1.left_stick_x * 1.5, gamepad1.right_stick_x);
 
-            //Gamepad 2 Controls
-            intake.rotateIntake(gamepad2.a, gamepad1.x, 1);
-            carousel.rotate(gamepad2.b, carouselPower);
     }
 
     private void gamePadTwoControls() {
-        intake.rotateIntake(gamepad2.a, gamepad1.x, intakePower);
+        intake.rotateIntake(gamepad2.a, gamepad2.x, intakePower);
         carousel.rotate(gamepad2.b, carouselPower);
         lift.elevate(.5, -gamepad2.left_stick_y);
 
