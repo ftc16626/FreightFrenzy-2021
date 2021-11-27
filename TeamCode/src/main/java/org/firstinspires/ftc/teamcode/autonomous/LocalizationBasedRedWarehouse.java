@@ -11,22 +11,23 @@ import org.firstinspires.ftc.teamcode.subsystems.Carousel;
 @Autonomous(name = "RedWarehouseAuto", group = "Red")
 public class LocalizationBasedRedWarehouse extends LinearOpMode {
 
-    SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
     @Override
     public void runOpMode() {
 
-        Trajectory traj1 = drive.trajectoryBuilder(new Pose2d(0.0, -63.0, 0.0))
-                .strafeLeft(21.0)
+        SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
+        Trajectory traj1 = drive.trajectoryBuilder(new Pose2d(0.0, -63.0, Math.toRadians(180.0)))
+                .strafeRight(21.0)
                 .build();
 
         Trajectory traj2 = drive.trajectoryBuilder(traj1.end())
-                .forward(72.0)
+                .back(120.0)
                 .build();
 
         waitForStart();
 
         if(isStopRequested()) return;
+
 
         drive.followTrajectory(traj1);
         drive.followTrajectory(traj2);

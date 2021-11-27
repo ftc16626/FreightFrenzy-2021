@@ -11,30 +11,33 @@ import org.firstinspires.ftc.teamcode.subsystems.Carousel;
 @Autonomous(name = "RedCarouselAuto", group = "Red")
 public class LocalizationBasedRedCarousel extends LinearOpMode {
 
-    SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
+
     Carousel carousel = new Carousel();
 
     @Override
     public void runOpMode() {
 
-        Trajectory traj1 = drive.trajectoryBuilder(new Pose2d(-39.0, -63.0, Math.toRadians(90.0)))
-                .forward(3.0)
+        SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
+        carousel.init(hardwareMap);
+
+        Trajectory traj1 = drive.trajectoryBuilder(new Pose2d(-39.0, -63.0, Math.toRadians(180.0)))
+                .strafeRight(10.0)
                 .build();
 
         Trajectory traj2 = drive.trajectoryBuilder(traj1.end())
-                .strafeLeft(14.0)
+                .forward(20.0)
                 .build();
 
         Trajectory traj3 = drive.trajectoryBuilder(traj2.end())
-                .lineToLinearHeading(new Pose2d(-12.0,-42.0,Math.toRadians(-90.0)))
+                .strafeRight(18.0)
                 .build();
 
         Trajectory traj4 = drive.trajectoryBuilder(traj3.end())
-                .lineToLinearHeading(new Pose2d(12.0,-42.0,Math.toRadians(0.0)))
+                .forward(42.0)
                 .build();
 
         Trajectory traj5 = drive.trajectoryBuilder(traj4.end())
-                .forward(36.0)
+                .back(144.0)
                 .build();
 
         waitForStart();
@@ -43,11 +46,13 @@ public class LocalizationBasedRedCarousel extends LinearOpMode {
 
         drive.followTrajectory(traj1);
         drive.followTrajectory(traj2);
-        carousel.rotate(true, 0.5);
 
+        //carousel.rotate(true, 0.5);
+        carousel.rotate(true, false);
+        sleep(2500);
+        carousel.rotate(false, false);
+        //sleep(5000);
         drive.followTrajectory(traj3);
-
-
         drive.followTrajectory(traj4);
         drive.followTrajectory(traj5);
     }

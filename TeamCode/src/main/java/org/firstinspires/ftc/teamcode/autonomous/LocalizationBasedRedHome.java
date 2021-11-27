@@ -7,25 +7,25 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
-@Autonomous(name = "BlueWarehouseAuto", group = "Blue")
-public class LocalizationBasedBlueWarehouse extends LinearOpMode {
-
+@Autonomous(name = "RedHomeAuto", group = "Red")
+public class LocalizationBasedRedHome extends LinearOpMode {
 
     @Override
     public void runOpMode() {
 
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
-        Trajectory traj1 = drive.trajectoryBuilder(new Pose2d(0.0, 63.0, Math.toRadians(180.0)))
-                .strafeLeft(21.0)
+
+        Trajectory traj1 = drive.trajectoryBuilder(new Pose2d(-39.0, -63.0, Math.toRadians(180.0)))
+                .strafeRight(39.0)
                 .build();
 
         Trajectory traj2 = drive.trajectoryBuilder(traj1.end())
-                .back(120.0)
+                .forward(24.0)
                 .build();
 
         waitForStart();
 
-        if (isStopRequested()) return;
+        if(isStopRequested()) return;
 
         drive.followTrajectory(traj1);
         drive.followTrajectory(traj2);
