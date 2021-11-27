@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.subsystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigurationType;
 
 public class Intake {
 
@@ -10,8 +11,12 @@ public class Intake {
 
 
     public void init(HardwareMap hardwareMap) {
-
         intakeMotor = hardwareMap.get(DcMotor.class, "intakeMotor");
+
+        intakeMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        MotorConfigurationType motorConfigurationType = intakeMotor.getMotorType().clone();
+        motorConfigurationType.setAchieveableMaxRPMFraction(1);
+        intakeMotor.setMotorType(motorConfigurationType);
 
         intakeMotor.setPower(0);
     }

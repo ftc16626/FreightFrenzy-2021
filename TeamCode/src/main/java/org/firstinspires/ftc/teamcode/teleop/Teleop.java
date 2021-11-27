@@ -51,11 +51,12 @@ public class Teleop extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
 
         //--------------------------- CODE THAT WILL BE RUN DURING INITIALIZATION BELOW ---------------------------\\
-        SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
-        driveTrain.init(hardwareMap);
+        SampleMecanumDrive drive;
+        //drive = new SampleMecanumDrive(hardwareMap);
+       // driveTrain.init(hardwareMap);
         intake.init(hardwareMap);
-        carousel.init(hardwareMap);
-        lift.init(hardwareMap);
+        //carousel.init(hardwareMap);
+        //lift.init(hardwareMap);
 
         //--------------------------- CODE THAT WILL BE LOOPED DURING INITIALIZATION BELOW ---------------------------\\
 
@@ -99,7 +100,7 @@ public class Teleop extends LinearOpMode {
 
 
             //Telemetry
-            telemetry.addData("heading", drive.getExternalHeading());
+           // telemetry.addData("heading", drive.getExternalHeading());
             telemetry.addData("Lift Position", lift.getLiftMotor().getCurrentPosition());
             telemetry.update();
         }
@@ -109,8 +110,8 @@ public class Teleop extends LinearOpMode {
     //--------------------------- METHODS  ---------------------------\\
 
     private void gamePadOneControls() {
-        driveTrain.setDrivePower(gamepad1.right_trigger, slowPercentage, -gamepad1.left_stick_y, gamepad1.left_stick_x * 1.5, gamepad1.right_stick_x);
-
+        if(!gamepad1.left_bumper) driveTrain.setDrivePower(gamepad1.right_trigger, slowPercentage, -gamepad1.left_stick_y, gamepad1.left_stick_x * 1.5, gamepad1.right_stick_x);
+        else driveTrain.setDrivePowerReversed(gamepad1.right_trigger, slowPercentage, -gamepad1.left_stick_y, gamepad1.left_stick_x * 1.5, gamepad1.right_stick_x);
     }
 
     private void gamePadTwoControls() {
@@ -147,6 +148,8 @@ public class Teleop extends LinearOpMode {
             changed = true;
         } else if(!button) changed = false;
     }
+
+
 
 
 
