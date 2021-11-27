@@ -19,10 +19,10 @@ public class Intake {
     //[button1]: forwards (intake) [button2]: backwards (outtake)
     public void rotateIntake(boolean button1, boolean button2, double power) {
         if (button1) {
-            intakeMotor.setPower(power);
+            intakeMotor.setPower(1);
         }
         if (button2) {
-            intakeMotor.setPower(-power);
+            intakeMotor.setPower(-1);
         }
         else {
             intakeMotor.setPower(0);
