@@ -99,4 +99,44 @@ public class DriveTrain {
 
     }
 
+    public void setDrivePowerReversed(float button, double percentage, double y, double x, double rx) { //Code to drive robot in holonomic fashion
+
+        double frontLeftPower = y + x + rx;
+        double backLeftPower = y - x + rx;
+        double frontRightPower = y - x - rx;
+        double backRightPower = y + x - rx;
+
+        if (Math.abs(frontLeftPower) > 1 || Math.abs(backLeftPower) > 1 ||
+                Math.abs(frontRightPower) > 1 || Math.abs(backRightPower) > 1) {
+            // Find the largest power
+            double max = 0;
+            max = Math.max(Math.abs(frontLeftPower), Math.abs(backLeftPower));
+            max = Math.max(Math.abs(frontRightPower), max);
+            max = Math.max(Math.abs(backRightPower), max);
+
+            // Divide everything by max (it's positive so we don't need to worry
+            // about signs)
+            frontLeftPower /= max;
+            backLeftPower /= max;
+            frontRightPower /= max;
+            backRightPower /= max;
+
+
+        }
+
+        if (button > 0) {
+            frontLeft.setPower(frontLeftPower * percentage);
+            backLeft.setPower(backLeftPower * percentage);
+            frontRight.setPower(frontRightPower * percentage);
+            backRight.setPower(backRightPower * percentage);
+
+        } else {
+            frontLeft.setPower(-frontLeftPower);
+            backLeft.setPower(-backLeftPower);
+            frontRight.setPower(-frontRightPower);
+            backRight.setPower(-backRightPower);
+        }
+
+    }
+
 }

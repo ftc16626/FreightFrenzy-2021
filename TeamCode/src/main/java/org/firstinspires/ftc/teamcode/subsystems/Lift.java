@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.CRServo;
 public class Lift {
 
     //Hardware
-    private DcMotor liftMotor; //Port 1-CH
+    public DcMotor liftMotor; //Port 1-CH
     private Servo tiltServoOne; //Port 0-CH
     private Servo tiltServoTwo; //Port 4-EH
     private CRServo gateServo;//Port 5-EH
@@ -38,15 +38,18 @@ public class Lift {
 
 
         liftMotor = hardwareMap.get(DcMotor.class, "liftMotor");
-        tiltServoOne = hardwareMap.get(Servo.class, "tiltServoOne");
-        tiltServoTwo = hardwareMap.get(Servo.class, "tiltServoTwo");
-        gateServo = hardwareMap.get(CRServo.class,"gateServo");
+       // tiltServoOne = hardwareMap.get(Servo.class, "tiltServoOne");
+        //tiltServoTwo = hardwareMap.get(Servo.class, "tiltServoTwo");
+        //gateServo = hardwareMap.get(CRServo.class,"gateServo");
 
-        //liftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        liftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
 
     }
 
 
+
+    /*
     // Add lift values and lift parameter to prevent line breakage
     /*public void elevate(double power, double joyStickControl) {
 
