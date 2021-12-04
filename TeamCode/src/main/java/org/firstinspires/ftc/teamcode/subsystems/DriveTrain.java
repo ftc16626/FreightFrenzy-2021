@@ -1,15 +1,16 @@
 package org.firstinspires.ftc.teamcode.subsystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class DriveTrain {
 
-    private DcMotor frontLeft; //Port
-    private DcMotor frontRight; //Port
-    private DcMotor backLeft; //Port
-    private DcMotor backRight; //Port
+    public DcMotor frontLeft; //Port
+    public DcMotor frontRight; //Port
+    public DcMotor backLeft; //Port
+    public DcMotor backRight; //Port
 
 
     public void rotateRight(double power) {

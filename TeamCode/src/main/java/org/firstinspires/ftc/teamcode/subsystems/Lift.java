@@ -38,7 +38,7 @@ public class Lift {
 
 
         liftMotor = hardwareMap.get(DcMotor.class, "liftMotor");
-       // tiltServoOne = hardwareMap.get(Servo.class, "tiltServoOne");
+       //tiltServoOne = hardwareMap.get(Servo.class, "tiltServoOne");
         //tiltServoTwo = hardwareMap.get(Servo.class, "tiltServoTwo");
         //gateServo = hardwareMap.get(CRServo.class,"gateServo");
 
@@ -114,17 +114,17 @@ public class Lift {
         } else if(!button) changed = false;
     }
     */
-
+/*
     public void toggleGate(double rightsticky){
         gateServo.setPower(rightsticky);
 
     }
 
+*/
 
-
-
+/*
     public Servo getTiltServoOne() {
         return tiltServoOne;
     }
-
+*/
 }

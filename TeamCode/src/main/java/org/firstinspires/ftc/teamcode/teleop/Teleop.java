@@ -51,12 +51,11 @@ public class Teleop extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
 
         //--------------------------- CODE THAT WILL BE RUN DURING INITIALIZATION BELOW ---------------------------\\
-        SampleMecanumDrive drive;
-        //drive = new SampleMecanumDrive(hardwareMap);
-       // driveTrain.init(hardwareMap);
+        SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
+       driveTrain.init(hardwareMap);
         intake.init(hardwareMap);
-        //carousel.init(hardwareMap);
-        //lift.init(hardwareMap);
+        carousel.init(hardwareMap);
+        lift.init(hardwareMap);
 
         //--------------------------- CODE THAT WILL BE LOOPED DURING INITIALIZATION BELOW ---------------------------\\
 
@@ -82,7 +81,7 @@ public class Teleop extends LinearOpMode {
 
 
             //Gamepad 1 Controls
-            gamePadOneControls();
+           // gamePadOneControls();
 
             //Gamepad 2 Controls
             gamePadTwoControls();
@@ -96,12 +95,19 @@ public class Teleop extends LinearOpMode {
           
 
             //Gamepad 1 Controls
-            driveTrain.setDrivePower(gamepad1.right_trigger, .3, -gamepad1.left_stick_y, gamepad1.left_stick_x * 1.5, gamepad1.right_stick_x);
+            //driveTrain.setDrivePower(gamepad1.right_trigger, .3, -gamepad1.left_stick_y, gamepad1.left_stick_x * 1.5, gamepad1.right_stick_x);
 
 
             //Telemetry
            // telemetry.addData("heading", drive.getExternalHeading());
             telemetry.addData("Lift Position", lift.getLiftMotor().getCurrentPosition());
+
+            if (gamepad1.dpad_down) {
+                driveTrain.setDriveUsingEncoders();
+                driveTrain.driveAll(.5);
+                telemetry.addData("frontleft", driveTrain.frontLeft.getCurrentPosition());
+            }
+
             telemetry.update();
         }
     }
@@ -127,12 +133,12 @@ public class Teleop extends LinearOpMode {
         toggleGuide(gamepad2.guide, gPadTwoGuide);
 
 
-        lift.toggleStage(gamepad2.dpad_down, dPadDownChanged,STAGEZERO);
-        lift.toggleStage(gamepad2.dpad_left, dPadLeftChanged,STAGEONE);
-        lift.toggleStage(gamepad2.dpad_up, dPadUpChanged,STAGETWO);
-        lift.toggleStage(gamepad2.dpad_right, dPadRightChanged,STAGETHREE);
+        //lift.toggleStage(gamepad2.dpad_down, dPadDownChanged,STAGEZERO);
+        //lift.toggleStage(gamepad2.dpad_left, dPadLeftChanged,STAGEONE);
+        //lift.toggleStage(gamepad2.dpad_up, dPadUpChanged,STAGETWO);
+        //lift.toggleStage(gamepad2.dpad_right, dPadRightChanged,STAGETHREE);
         //lift.toggleTilt(gamepad2.right_bumper, rightBumperChanged, lift.getTiltServoOne().getPosition(), targetTiltPosition);
-        lift.toggleGate(gamepad2.left_stick_y);
+       // lift.toggleGate(gamepad2.left_stick_y);
 
     }
 
@@ -148,6 +154,7 @@ public class Teleop extends LinearOpMode {
             changed = true;
         } else if(!button) changed = false;
     }
+
 
 
 
