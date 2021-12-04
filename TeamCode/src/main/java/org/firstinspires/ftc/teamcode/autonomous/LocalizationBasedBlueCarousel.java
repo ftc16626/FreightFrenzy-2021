@@ -20,7 +20,7 @@ public class LocalizationBasedBlueCarousel extends LinearOpMode {
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
         carousel.init(hardwareMap);
 
-        Trajectory traj1 = drive.trajectoryBuilder(new Pose2d(-39.0, 63.0, Math.toRadians(180.0)))
+        Trajectory traj1 = drive.trajectoryBuilder(new Pose2d(-39.0, 66.0, Math.toRadians(180.0)))
                 .strafeLeft(10.0)
                 .build();
 
