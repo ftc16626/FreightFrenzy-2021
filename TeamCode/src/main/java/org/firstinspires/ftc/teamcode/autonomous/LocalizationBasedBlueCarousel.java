@@ -25,15 +25,23 @@ public class LocalizationBasedBlueCarousel extends LinearOpMode {
                 .build();
 
         Trajectory traj2 = drive.trajectoryBuilder(traj1.end())
-                .strafeLeft(20.0)
+                .strafeLeft(21.0)
                 .build();
 
         Trajectory traj3 = drive.trajectoryBuilder(traj2.end())
-                .back(18.0)
+                .back(13.0)
                 .build();
 
         Trajectory traj4 = drive.trajectoryBuilder(traj3.end())
-                .back(120.0)
+                .strafeRight(10.0)
+                .build();
+
+        Trajectory traj5 = drive.trajectoryBuilder(traj4.end())
+                .strafeRight(25.0)
+                .build();
+
+        Trajectory traj6 = drive.trajectoryBuilder(traj5.end())
+                .back(115.0)
                 .build();
 
         /*Trajectory traj6 = drive.trajectoryBuilder(traj5.end())
@@ -46,7 +54,7 @@ public class LocalizationBasedBlueCarousel extends LinearOpMode {
         if(isStopRequested()) return;
 
         drive.followTrajectory(traj1);
-        drive.turn(Math.toRadians(-90.0));
+        drive.turn(Math.toRadians(-135.0));
         drive.followTrajectory(traj2);
 
         //carousel.rotate(true, 0.5);
@@ -55,10 +63,10 @@ public class LocalizationBasedBlueCarousel extends LinearOpMode {
         carousel.rotate(false, false);
 
         drive.followTrajectory(traj3);
-        drive.turn(Math.toRadians(90));
         drive.followTrajectory(traj4);
-        //drive.followTrajectory(traj5);
-        //drive.followTrajectory(traj6);
+        drive.turn(Math.toRadians(135.0));
+        drive.followTrajectory(traj5);
+        drive.followTrajectory(traj6);
 
 
     }
