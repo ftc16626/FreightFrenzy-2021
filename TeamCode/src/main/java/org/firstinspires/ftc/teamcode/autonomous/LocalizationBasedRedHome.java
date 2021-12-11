@@ -16,11 +16,7 @@ public class LocalizationBasedRedHome extends LinearOpMode {
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
         Trajectory traj1 = drive.trajectoryBuilder(new Pose2d(-39.0, -63.0, Math.toRadians(180.0)))
-                .strafeRight(39.0)
-                .build();
-
-        Trajectory traj2 = drive.trajectoryBuilder(traj1.end())
-                .forward(24.0)
+                .back(100.0)
                 .build();
 
         waitForStart();
@@ -28,6 +24,6 @@ public class LocalizationBasedRedHome extends LinearOpMode {
         if(isStopRequested()) return;
 
         drive.followTrajectory(traj1);
-        drive.followTrajectory(traj2);
+        //drive.followTrajectory(traj2);
     }
 }

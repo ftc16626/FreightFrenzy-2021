@@ -25,19 +25,19 @@ public class LocalizationBasedRedCarousel extends LinearOpMode {
                 .build();
 
         Trajectory traj2 = drive.trajectoryBuilder(traj1.end())
-                .forward(20.0)
+                .forward(15.0)
                 .build();
 
         Trajectory traj3 = drive.trajectoryBuilder(traj2.end())
-                .strafeRight(18.0)
+                .back(15.0)
                 .build();
 
         Trajectory traj4 = drive.trajectoryBuilder(traj3.end())
-                .forward(42.0)
+                .strafeLeft(11.0)
                 .build();
 
         Trajectory traj5 = drive.trajectoryBuilder(traj4.end())
-                .back(144.0)
+                .back(100.0)
                 .build();
 
         waitForStart();

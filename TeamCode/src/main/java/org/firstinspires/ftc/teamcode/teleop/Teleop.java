@@ -84,7 +84,8 @@ public class Teleop extends LinearOpMode {
            // gamePadOneControls();
 
             //Gamepad 2 Controls
-            gamePadTwoControls();
+           //
+            // gamePadTwoControls();
             lift.getLiftMotor().setPower(-gamepad2.right_stick_y*.65);
 
             //liftMotor.setMode.(DcMotor.runMode.RUN_WITHOUT_ENCODER);
@@ -117,7 +118,7 @@ public class Teleop extends LinearOpMode {
 
     private void gamePadOneControls() {
         if(!gamepad1.left_bumper) driveTrain.setDrivePower(gamepad1.right_trigger, slowPercentage, -gamepad1.left_stick_y, gamepad1.left_stick_x * 1.5, gamepad1.right_stick_x);
-        else driveTrain.setDrivePowerReversed(gamepad1.right_trigger, slowPercentage, -gamepad1.left_stick_y, gamepad1.left_stick_x * 1.5, gamepad1.right_stick_x);
+        else driveTrain.setDrivePowerReversed(gamepad1.right_trigger, slowPercentage, -gamepad1.left_stick_y, -gamepad1.left_stick_x * 1.5, gamepad1.right_stick_x);
     }
 
     private void gamePadTwoControls() {
