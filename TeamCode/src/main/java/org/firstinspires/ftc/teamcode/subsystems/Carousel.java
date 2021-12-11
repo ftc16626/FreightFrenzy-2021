@@ -16,9 +16,13 @@ public class Carousel {
     }
 
     //[button]: rotate counterclockwise
-    public void rotate(boolean button, double power) {
+    public void rotate(boolean button, boolean button2) {
         if (button) {
             carouselMotor.setPower(-.5);
+        }
+
+        else if (button2) {
+            carouselMotor.setPower(.5);
         } else {
             carouselMotor.setPower(0);
         }
