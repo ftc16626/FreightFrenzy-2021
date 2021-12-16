@@ -15,15 +15,16 @@ import java.util.List;
 
 public class ElementDetector extends OpenCvPipeline {
 
-
     private int lastResult = 0;
+    boolean test = false;
+
     public boolean left;
     public boolean right;
     VisionTest vt = new VisionTest();
     //public Rect[] boundRect = new Rect[0];
     private int width;
 
-    public ElementDetector(int width){
+    public ElementDetector(int width) {
         this.width = width;
     }
 
@@ -31,7 +32,7 @@ public class ElementDetector extends OpenCvPipeline {
     public Mat processFrame(Mat input) {
         Mat mat = new Mat();
         Imgproc.cvtColor(input, mat, Imgproc.COLOR_RGB2HSV);
-        if(mat.empty()) return input;
+        if (mat.empty()) return input;
 
         Scalar lowHSV = new Scalar(20, 100, 100);
         Scalar highHSV = new Scalar(30, 255, 255);
@@ -48,8 +49,7 @@ public class ElementDetector extends OpenCvPipeline {
 
         MatOfPoint2f[] contoursPoly = new MatOfPoint2f[contours.size()];
         Rect[] boundRect = new Rect[contours.size()];
-        for(int i = 0; i < contours.size();i++)
-        {
+        for (int i = 0; i < contours.size(); i++) {
             contoursPoly[i] = new MatOfPoint2f();
             Imgproc.approxPolyDP(new MatOfPoint2f(contours.get(i).toArray()), contoursPoly[i], 3, true);
             boundRect[i] = Imgproc.boundingRect(new MatOfPoint(contoursPoly[i].toArray()));
@@ -59,10 +59,9 @@ public class ElementDetector extends OpenCvPipeline {
         double right_x = 0.75 * width;
         left = false;
         right = false;
-        for (int i = 0; i != boundRect.length; i++)
-        {
-            if(boundRect[i].x < left_x) vt.test = true;
-            if(boundRect[i].x + boundRect[i].width > right_x) vt.test = true;
+        for (int i = 0; i != boundRect.length; i++) {
+            if (boundRect[i].x < left_x) vt.test = true;
+            if (boundRect[i].x + boundRect[i].width > right_x) vt.test = true;
 
             Imgproc.rectangle(mat, boundRect[i], new Scalar(0.5, 76.9, 89.8));
         }
@@ -74,11 +73,23 @@ public class ElementDetector extends OpenCvPipeline {
         return lastResult;
     }
 
-    public boolean getLeft(){
+    public boolean getLeft() {
         return left;
     }
 
-    public boolean getRight(){
+    public boolean getRight() {
         return right;
     }
 }
+
+//    public boolean getLeft(){
+//        left = true;
+//        return left;
+//    }
+//public boolean getTest() {
+//        return test;
+//}
+//    public boolean getRight(){
+//
+//        return right;
+//    }

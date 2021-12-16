@@ -54,6 +54,9 @@ public class Teleop extends LinearOpMode {
             //Gamepad 2 Controls
             gamePadTwoControls();
 
+
+            telemetry.addData("Lift Position", lift.liftServo.getPosition());
+            telemetry.update();
         }
     }
 
@@ -68,6 +71,7 @@ public class Teleop extends LinearOpMode {
         } else {
             driveTrain.setDrivePower(gamepad1.right_trigger, slowPercentage, -gamepad1.left_stick_y, gamepad1.left_stick_x * 1.5, gamepad1.right_stick_x);
         }
+        carousel.rotate(gamepad1.left_stick_x > 0, gamepad1.left_stick_x < 0);
 
         //Works but perhaps unnecessarily complicated?
         /*
@@ -83,8 +87,9 @@ public class Teleop extends LinearOpMode {
     }
 
     private void gamePadTwoControls() {
-        //intake.rotateIntake(gamepad2.a, gamepad2.x, intakePower);
-        carousel.rotate(gamepad2.b, gamepad2.y);
+        intake.rotateIntake(gamepad2.right_stick_y> 0, gamepad2.right_stick_y < 0, intakePower);
+        carousel.rotate(gamepad2.left_stick_x > 0, gamepad2.left_stick_x < 0);
+        lift.elevate(gamepad2.a, gamepad1.b, gamepad2.y, gamepad2.left_stick_y);
 
 
     }
