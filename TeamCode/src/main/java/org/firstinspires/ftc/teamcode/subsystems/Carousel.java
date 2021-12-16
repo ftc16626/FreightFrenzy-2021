@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 public class Carousel {
 
 
+    private final double carouselPower = .5;
     private DcMotor carouselMotor; //Port
 
     public void init(HardwareMap hardwareMap) {
@@ -15,19 +16,16 @@ public class Carousel {
         carouselMotor.setPower(0);
     }
 
-    //[button]: rotate counterclockwise
-    public void rotate(boolean button, boolean button2) {
-        if (button) {
-            carouselMotor.setPower(-.5);
-        }
-
-        else if (button2) {
-            carouselMotor.setPower(.5);
+    //[button1]: rotate counterclockwise [button2]: rotate clockwise
+    public void rotate(boolean button1, boolean button2) {
+        if (button1) {
+            carouselMotor.setPower(-carouselPower);
+        } else if (button2) {
+            carouselMotor.setPower(carouselPower);
         } else {
             carouselMotor.setPower(0);
         }
     }
-
 
     public DcMotor getCarouselMotor() {
         return carouselMotor;

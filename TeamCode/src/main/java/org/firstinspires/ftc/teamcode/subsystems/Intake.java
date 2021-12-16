@@ -7,12 +7,13 @@ import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigu
 public class Intake {
 
     private DcMotor intakeMotor; //Port
-
+    private double intakePower = 1;
 
 
     public void init(HardwareMap hardwareMap) {
         intakeMotor = hardwareMap.get(DcMotor.class, "intakeMotor");
 
+        //Runs intake using encoder and the percentage of its max rpm it can reach
         intakeMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         MotorConfigurationType motorConfigurationType = intakeMotor.getMotorType().clone();
         motorConfigurationType.setAchieveableMaxRPMFraction(1);
@@ -24,10 +25,10 @@ public class Intake {
     //[button1]: forwards (intake) [button2]: backwards (outtake)
     public void rotateIntake(boolean button1, boolean button2, double power) {
         if (button1) {
-            intakeMotor.setPower(1);
+            intakeMotor.setPower(intakePower);
         }
         if (button2) {
-            intakeMotor.setPower(-1);
+            intakeMotor.setPower(-intakePower);
         }
         else {
             intakeMotor.setPower(0);
