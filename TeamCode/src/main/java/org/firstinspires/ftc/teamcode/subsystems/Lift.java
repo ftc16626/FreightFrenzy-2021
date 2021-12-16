@@ -22,10 +22,6 @@ public class Lift {
     private final int stageThree = 0;
     private final int startPosition = 0;
 
-
-
-
-
     public enum Stage {
         DEFAULT, STAGEZERO, STAGEONE, STAGETWO, STAGETHREE
     }

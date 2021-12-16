@@ -99,7 +99,7 @@ public class DriveTrain {
         }
 
     }
-
+/*
     public void setDrivePowerReversed(float button, double percentage, double y, double x, double rx) { //Code to drive robot in holonomic fashion
 
         double frontLeftPower = y + x + rx;
@@ -139,5 +139,7 @@ public class DriveTrain {
         }
 
     }
+
+ */
 
 }
