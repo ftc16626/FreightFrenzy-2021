@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ElementDetector extends OpenCvPipeline {
+
+
+    private int lastResult = 0;
     public boolean left;
     public boolean right;
     VisionTest vt = new VisionTest();
@@ -63,8 +66,12 @@ public class ElementDetector extends OpenCvPipeline {
 
             Imgproc.rectangle(mat, boundRect[i], new Scalar(0.5, 76.9, 89.8));
         }
-
+        lastResult = 1;
         return mat;
+    }
+
+    public int getLastResult() {
+        return lastResult;
     }
 
     public boolean getLeft(){
