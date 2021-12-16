@@ -39,7 +39,10 @@ public class VisionTest extends LinearOpMode {
 
         telemetry.addData("Left", test);
         telemetry.addData("Right", test);
+
         telemetry.addData("lastResult", detector.getLastResult());
+        //telemetry.addData("Test", detector.getTest());
+
         //telemetry.addData("BoundRect", detector.boundRect.length);
         telemetry.update();
         waitForStart();
