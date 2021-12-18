@@ -14,6 +14,7 @@ public class Teleop extends LinearOpMode {
 
     //Power variables
     private final double intakePower = 1;
+
     //Position variables
 
     //Misc
@@ -38,7 +39,8 @@ public class Teleop extends LinearOpMode {
         //--------------------------- INIT LOOP ---------------------------\\
 
         while (!isStarted()) {
-
+            lift.liftServo.setPosition(.8);
+            lift.bucketServo.setPosition(.1);
 
         }
 
@@ -46,7 +48,9 @@ public class Teleop extends LinearOpMode {
 
         //--------------------------- TELEOP LOOP ---------------------------\\
 
+
         while (!isStopRequested()) {
+
 
             //Gamepad 1 Controls
             gamePadOneControls();
@@ -55,7 +59,8 @@ public class Teleop extends LinearOpMode {
             gamePadTwoControls();
 
 
-            telemetry.addData("Lift Position", lift.liftServo.getPosition());
+
+            telemetry.addData("Position", lift.bucketServo.getPosition());
             telemetry.update();
         }
     }
@@ -89,7 +94,7 @@ public class Teleop extends LinearOpMode {
     private void gamePadTwoControls() {
         intake.rotateIntake(gamepad2.right_stick_y> 0, gamepad2.right_stick_y < 0, intakePower);
         carousel.rotate(gamepad2.left_stick_x > 0, gamepad2.left_stick_x < 0);
-        lift.elevate(gamepad2.a, gamepad1.b, gamepad2.y, gamepad2.left_stick_y);
+        lift.elevate(gamepad2.a, gamepad2.b, gamepad2.y, gamepad2.x, gamepad2.left_stick_y, gamepad2.right_stick_y);
 
 
     }
