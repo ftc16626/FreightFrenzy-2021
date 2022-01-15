@@ -35,16 +35,17 @@ public class VisionTest extends LinearOpMode {
             }
         });
         camera.setPipeline(detector);
-       // camera.startStreaming(width, height, OpenCvCameraRotation.UPRIGHT);
+        //camera.startStreaming(width, height, OpenCvCameraRotation.UPRIGHT);
+while (!isStarted()) {
+    telemetry.addData("Left", test);
+    telemetry.addData("Right", test);
 
-        telemetry.addData("Left", test);
-        telemetry.addData("Right", test);
+    telemetry.addData("lastResult", detector.getLastResult());
+    telemetry.addData("Test", detector.getTest());
 
-        telemetry.addData("lastResult", detector.getLastResult());
-        //telemetry.addData("Test", detector.getTest());
-
-        //telemetry.addData("BoundRect", detector.boundRect.length);
-        telemetry.update();
+    //telemetry.addData("BoundRect", detector.boundRect.length);
+    telemetry.update();
+}
         waitForStart();
     }
 
