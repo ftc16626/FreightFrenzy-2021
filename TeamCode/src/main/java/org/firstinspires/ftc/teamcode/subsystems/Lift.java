@@ -28,7 +28,7 @@ public class Lift {
         return position;
     }
 
-    private double position = .8;
+    private double position = .85;
     public double bucketPosition = .1;
     private int changed = 0;
 
@@ -40,7 +40,7 @@ public class Lift {
                 bucketPosition = .4;
             }
             else {
-                position = .8;
+                position = .85;
                 bucketPosition = .1;
             }
             changed = 1;
@@ -50,17 +50,17 @@ public class Lift {
                 bucketPosition = .6;
             }
             else {
-                position = .8;
+                position = .85;
                 bucketPosition = .1;
             }
             changed = 2;
         } else if (y && changed != 3) {
-            if (position != .15) {
-                position = .15;
-                bucketPosition = .8;
+            if (position != .2) {
+                position = .2;
+                bucketPosition = .7;
             }
             else {
-                position = .8;
+                position = .85;
                 bucketPosition = .1;
             }
             changed = 3;
@@ -76,10 +76,10 @@ public class Lift {
                     bucketPosition = .6;
                 }
 
-                if (position == .15) {
-                    bucketPosition = .8;
+                if (position == .2) {
+                    bucketPosition = .7;
                 }
-                if (position == .8) {
+                if (position == .85) {
                     bucketPosition = .1;
                 }
 
@@ -106,10 +106,10 @@ public class Lift {
                     bucketPosition = .6;
                 }
 
-                if (position == .15) {
-                    bucketPosition = .8;
+                if (position == .2) {
+                    bucketPosition = .7;
                 }
-                if (position == .8) {
+                if (position == .85) {
                     bucketPosition = .1;
                 }
             }

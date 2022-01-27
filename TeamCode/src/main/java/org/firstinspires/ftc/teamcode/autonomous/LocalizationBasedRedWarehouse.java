@@ -11,6 +11,7 @@ import org.firstinspires.ftc.teamcode.subsystems.Carousel;
 @Autonomous(name = "RedWarehouseAuto", group = "Red")
 public class LocalizationBasedRedWarehouse extends LinearOpMode {
 
+Pose2d pose = new Pose2d(0.0, -63.0, Math.toRadians(180.0));
 
     @Override
     public void runOpMode() {
@@ -21,6 +22,7 @@ public class LocalizationBasedRedWarehouse extends LinearOpMode {
                 .build();
 
         waitForStart();
+
 
         if(isStopRequested()) return;
 

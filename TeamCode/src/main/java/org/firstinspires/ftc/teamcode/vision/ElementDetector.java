@@ -19,6 +19,9 @@ public class ElementDetector extends OpenCvPipeline {
     public int lastResult = 0;
     boolean test = false;
 
+    private int position = 3;
+
+
     public boolean left;
     public boolean right;
     //VisionTest vt = new VisionTest();
@@ -37,11 +40,11 @@ public class ElementDetector extends OpenCvPipeline {
     /*
      * The core values which define the location and size of the sample regions
      */
-    static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(109,98);
-    static final Point REGION2_TOPLEFT_ANCHOR_POINT = new Point(181,98);
-    static final Point REGION3_TOPLEFT_ANCHOR_POINT = new Point(253,98);
-    static final int REGION_WIDTH = 20;
-    static final int REGION_HEIGHT = 20;
+    static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(10,190);
+    static final Point REGION2_TOPLEFT_ANCHOR_POINT = new Point(125,190);
+    static final Point REGION3_TOPLEFT_ANCHOR_POINT = new Point(253,190);
+    static final int REGION_WIDTH = 50;
+    static final int REGION_HEIGHT = 50;
 
     /*
      * Points which actually define the sample region rectangles, derived from above values
@@ -228,7 +231,7 @@ public class ElementDetector extends OpenCvPipeline {
          */
         if(max == avg1) // Was it from region 1?
         {
-           // position = SkystonePosition.LEFT; // Record our analysis
+            position = 1; // Record our analysis
 
             /*
              * Draw a solid rectangle on top of the chosen region.
@@ -243,7 +246,7 @@ public class ElementDetector extends OpenCvPipeline {
         }
         else if(max == avg2) // Was it from region 2?
         {
-            //position = SkystonePosition.CENTER; // Record our analysis
+            position = 2; // Record our analysis
 
             /*
              * Draw a solid rectangle on top of the chosen region.
@@ -258,7 +261,7 @@ public class ElementDetector extends OpenCvPipeline {
         }
         else if(max == avg3) // Was it from region 3?
         {
-           // position = SkystonePosition.RIGHT; // Record our analysis
+           position = 3; // Record our analysis
 
             /*
              * Draw a solid rectangle on top of the chosen region.
@@ -338,8 +341,8 @@ public class ElementDetector extends OpenCvPipeline {
         return lastResult;
     }
 
-    public boolean getLeft() {
-        return left;
+    public int getPosition() {
+        return position;
     }
 
     public boolean getRight() {

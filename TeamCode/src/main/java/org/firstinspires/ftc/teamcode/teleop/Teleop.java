@@ -39,7 +39,7 @@ public class Teleop extends LinearOpMode {
         //--------------------------- INIT LOOP ---------------------------\\
 
         while (!isStarted()) {
-            lift.liftServo.setPosition(.8);
+            lift.liftServo.setPosition(.85);
             lift.bucketServo.setPosition(.1);
 
         }
