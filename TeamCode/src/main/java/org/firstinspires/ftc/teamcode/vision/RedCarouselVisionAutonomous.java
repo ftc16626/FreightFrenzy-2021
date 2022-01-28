@@ -14,8 +14,8 @@ import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
-@Autonomous(name = "VisionAutonomous", group = "Vision")
-public class VisionAutonomous extends LinearOpMode {
+@Autonomous(name = "RedCarouselVisionAutonomous", group = "Vision")
+public class RedCarouselVisionAutonomous extends LinearOpMode {
 
 private double liftPos;
 private double bucketPos;
@@ -60,8 +60,8 @@ private double bucketDumpPos;
                 telemetry.addData("Position:", "LEFT");
                 liftPos = .5;
                 bucketPos = .4;
-                distanceToHub = 14;
-                bucketDumpPos = .8;
+                distanceToHub = 11;
+                bucketDumpPos = .7;
             }
             if (detector.getPosition() == 2) {
                 telemetry.addData("Position:", "CENTER");
@@ -74,8 +74,8 @@ private double bucketDumpPos;
                 telemetry.addData("Position:", "RIGHT");
                 liftPos = .2;
                 bucketPos = .7;
-                distanceToHub = 18;
-                bucketDumpPos = .8;
+                distanceToHub = 14;
+                bucketDumpPos = 1.0;
             }
 
             lift.liftServo.setPosition(.8);
@@ -106,15 +106,15 @@ private double bucketDumpPos;
                 .back(distanceToHub)
                 .build();
 
-        Trajectory traj46 = drive.trajectoryBuilder(traj45.end())
-                .forward(3)
-                .build();
+        //Trajectory traj46 = drive.trajectoryBuilder(traj45.end())
+          //      .forward(3)
+            //    .build();
 
-        Trajectory traj6 = drive.trajectoryBuilder(traj46.end())
-                .strafeLeft(40.0)
-                .build();
+//        Trajectory traj6 = drive.trajectoryBuilder(traj46.end())
+//                .strafeLeft(40.0)
+//                .build();
 
-        Trajectory traj5 = drive.trajectoryBuilder(traj6.end())
+        Trajectory traj5 = drive.trajectoryBuilder(traj4.end())
                 .back(98.0)
                 .build();
 
@@ -147,7 +147,7 @@ private double bucketDumpPos;
         drive.followTrajectory(traj45);
         lift.bucketServo.setPosition(bucketDumpPos);
         sleep(1000);
-        drive.followTrajectory(traj46);
+        //drive.followTrajectory(traj46);
         drive.turn(Math.toRadians(-135.0));
         lift.liftServo.setPosition(.8);
         lift.bucketServo.setPosition(.1);
